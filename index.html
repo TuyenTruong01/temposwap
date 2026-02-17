@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeuraSwap</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+  <!-- Top bar -->
+  <header class="topbar">
+    <div class="brand">
+      <img id="brandLogo" class="brand__logo" src="/assets/logo.png" alt="NeuraSwap" />
+      <div class="brand__name">NeuraSwap</div>
+    </div>
+
+    <div class="topbar__right">
+      <div class="pill" id="pillNetwork" title="Neura Testnet">
+        <span class="dot" id="netDot"></span>
+        <span id="networkName">Neura Testnet</span>
+        <span class="chev">▼</span>
+      </div>
+
+      <button id="btnConnectTop" class="btn btn-primary" type="button">Connect Wallet</button>
+      <button id="btnDisconnect" class="btn btn-ghost btn-sm" type="button" style="display:none;">Disconnect</button>
+    </div>
+  </header>
+
+  <!-- Background -->
+  <div class="bg"></div>
+
+  <!-- Main card -->
+  <main class="wrap">
+    <section class="card">
+      <div class="card__head">
+        <div>
+          <div class="card__title">NeuraSwap</div>
+          <div class="card__sub">
+            <span id="walletStatus">Not connected</span>
+            <span class="sep">•</span>
+            <span id="balancesLine">HOUSE: 0 | BICY: 0</span>
+          </div>
+        </div>
+
+        <button id="btnReset" class="btn btn-ghost" type="button">Reset</button>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs">
+        <button id="tabSwap" class="tab tab--active" type="button">Swap</button>
+        <button id="tabLiquidity" class="tab" type="button">Add Liquidity</button>
+        <button id="tabFaucet" class="tab" type="button">Faucet</button>
+      </div>
+
+      <!-- Swap panel -->
+      <div id="panelSwap" class="panel">
+        <div class="field">
+          <div class="label">From</div>
+          <div class="inputRow">
+            <input id="fromAmount" class="input" placeholder="0.0" inputmode="decimal" />
+            <button class="tokenPill" id="fromTokenBtn" type="button">HOUSE</button>
+          </div>
+          <div class="hint">Balance: <span id="fromBal">0</span></div>
+        </div>
+
+        <div class="swapMid">
+          <button id="btnFlip" class="iconBtn" title="Flip" type="button">↕</button>
+        </div>
+
+        <div class="field">
+          <div class="label">To (estimated)</div>
+          <div class="inputRow">
+            <input id="toAmount" class="input" placeholder="0.0" disabled />
+            <button class="tokenPill" id="toTokenBtn" type="button">BICY</button>
+          </div>
+          <div class="hint">Balance: <span id="toBal">0</span></div>
+        </div>
+
+        <div class="row2">
+          <div class="small">Rate: <span id="rateLine">—</span></div>
+
+          <div class="slip">
+            <span class="small">Slippage</span>
+            <select id="slippageSel" class="select">
+              <option value="auto">Auto: 0.50%</option>
+              <option value="0.1">0.10%</option>
+              <option value="0.5" selected>0.50%</option>
+              <option value="1">1.00%</option>
+              <option value="2">2.00%</option>
+            </select>
+          </div>
+        </div>
+
+        <button id="btnSwap" class="btn btn-primary btn-big" type="button">Swap</button>
+        <div id="swapMsg" class="msg"></div>
+      </div>
+
+      <!-- Add Liquidity panel -->
+      <div id="panelLiquidity" class="panel hidden">
+        <div class="faucetTitle">Add Liquidity</div>
+        <div class="small muted">Type ONE side, the other side auto-fills by pool ratio</div>
+
+        <div class="field">
+          <div class="label">HOUSE amount</div>
+          <div class="inputRow">
+            <input id="liqHouseAmount" class="input" placeholder="0.0" inputmode="decimal" />
+            <span class="tokenTag">HOUSE</span>
+          </div>
+          <div class="hint">Balance: <span id="liqHouseBal">0</span></div>
+        </div>
+
+        <div class="field">
+          <div class="label">BICY amount</div>
+          <div class="inputRow">
+            <input id="liqBicyAmount" class="input" placeholder="0.0" inputmode="decimal" />
+            <span class="tokenTag">BICY</span>
+          </div>
+          <div class="hint">Balance: <span id="liqBicyBal">0</span></div>
+        </div>
+
+        <!-- NEW: ratio + preview -->
+        <div class="row2" style="margin-top:8px;">
+          <div class="small">Pool ratio: <span id="liqRatio">—</span></div>
+        </div>
+        <div class="small" id="liqPreview" style="margin-top:6px;">You will add: —</div>
+
+        <button id="btnAddLiquidity" class="btn btn-primary btn-big" type="button">Add Liquidity</button>
+        <div id="liqMsg" class="msg"></div>
+      </div>
+
+      <!-- Faucet panel -->
+      <div id="panelFaucet" class="panel hidden">
+        <div class="faucetTitle">Faucet: HOUSE / BICY</div>
+        <div class="small muted">Claim test tokens (cooldown per address)</div>
+
+        <div class="faucetBtns">
+          <button id="btnClaimBoth" class="btn btn-primary" type="button">
+            Claim 100 HOUSE + 100 BICY
+          </button>
+        </div>
+
+        <div id="faucetMsg" class="msg"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="/config.js"></script>
+  <script type="module" src="/script.js"></script>
+</body>
+</html>

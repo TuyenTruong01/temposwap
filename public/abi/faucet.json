@@ -1,0 +1,37 @@
+[
+  {
+    "type": "function",
+    "name": "house",
+    "stateMutability": "view",
+    "inputs": [],
+    "outputs": [{ "name": "", "type": "address" }]
+  },
+  {
+    "type": "function",
+    "name": "bicy",
+    "stateMutability": "view",
+    "inputs": [],
+    "outputs": [{ "name": "", "type": "address" }]
+  },
+  {
+    "type": "function",
+    "name": "canClaim",
+    "stateMutability": "view",
+    "inputs": [{ "name": "user", "type": "address" }],
+    "outputs": [{ "name": "", "type": "bool" }]
+  },
+  {
+    "type": "function",
+    "name": "claimBoth",
+    "stateMutability": "nonpayable",
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "type": "function",
+    "name": "lastClaimAt",
+    "stateMutability": "view",
+    "inputs": [{ "name": "", "type": "address" }],
+    "outputs": [{ "name": "", "type": "uint256" }]
+  }
+]
